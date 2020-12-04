@@ -17,12 +17,12 @@ function Profile(props) {
       </button>
       {visability && (
         <div className="header__profile-popap">
-          <a className="profile-popap__link">
+          <div className="profile-popap__link">
             Profile
-          </a>
-          <a className="profile-popap__link">
+          </div>
+          <div className="profile-popap__link">
             Log Out
-          </a>
+          </div>
         </div>
       )}
     </div>
