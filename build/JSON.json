@@ -1,0 +1,44 @@
+[
+  {
+    "title": "backlog",
+    "issues": [
+        {
+            "id": 1,
+            "name": "Task 1"
+        },
+        {
+          "id": 2,
+          "name": "Task 2"
+        }
+    ]
+  },
+  {
+    "title": "Ready",
+    "issues": [
+        {
+            "id": 3,
+            "name": "Task 3"
+        }
+    ]
+  }
+  ,
+  {
+    "title": "In Progress",
+    "issues": [
+        {
+            "id": 4,
+            "name": "Task 4"
+        }
+    ]
+  }
+  ,
+  {
+    "title": "Finished",
+    "issues": [
+        {
+            "id": 5,
+            "name": "Task 5"
+        }
+    ]
+  }
+]

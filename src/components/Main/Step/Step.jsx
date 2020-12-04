@@ -14,7 +14,12 @@ function Step(props) {
               key={`${index}${item}`}
               to={{
                 pathname: "/Fullscreen",
-                date: { title: item.name, desc: item.desc },
+                date: {
+                  title: item.name,
+                  desc: item.desc,
+                  cardid: item.id,
+                  listId: props.data.id,
+                },
               }}
             >
               <Task key={index} text={item.name} />

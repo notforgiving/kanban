@@ -16,9 +16,7 @@ class Addcard extends React.Component {
     this.myRef = React.createRef();
     this.state = {
       formOpen: false,
-      newTask: localStorage.getItem("newTask")
-        ? localStorage.getItem("newTask")
-        : "",
+      newTask: localStorage.getItem("newTask") || "",
       moveTask: "",
     };
   }

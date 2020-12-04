@@ -53,6 +53,20 @@ const listsReducer = (state = initialstate, action) => {
       });
 
       return newState;
+    case CONSTANTS.ADD_DESC:
+      newState = state.map((list) => {
+        if (list.id === action.payload.listid) {
+          list.card.forEach((card) => {
+            console.log(card);
+            if (card.id === action.payload.cardid) {
+              card.desc = action.payload.description;
+            }
+            console.log(card);
+          });
+        }
+        return list;
+      });
+      return newState;
     default:
       return state;
   }

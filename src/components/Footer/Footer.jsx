@@ -4,29 +4,13 @@ import Statistic from "./Statistic";
 
 function Footer(props) {
   let data = {
-    active: 0,
-    finish: 0,
-    year: ''
+    active: props.state.find(item => item.id === 0).card.length,
+    finish: props.state.find(item => item.id === 3).card.length,
+    year: new Date().getFullYear()
   }
 
-  let today = new Date();
-  data.year =  today.getFullYear();
-
-  props.state.forEach(item=>{
-    if (item.id===0){
-      item.card.forEach(card=>{
-        data.active++;
-      })
-    }
-    else if(item.id===3){
-      item.card.forEach(card=>{
-        data.finish++;
-      })
-    }
-  })
-
   return (
-    <Statistic date={data}/>
+    <Statistic active = {data.active} year={data.year} finish={data.finish}/>
   );
 }
 
