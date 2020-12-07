@@ -4,7 +4,6 @@ import Task from "./Task/Task";
 import { Link } from "react-router-dom";
 
 function Step(props) {
-  console.log(props)
   return (
     <div className="tasks__step">
       <h4 className="tasks__step-title">{props.data.title}</h4>

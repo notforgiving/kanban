@@ -3,9 +3,26 @@ import state from "./state";
 let cardId = 10;
 let newState = "";
 
-const initialstate = state;
 
-const listsReducer = (state = initialstate, action) => {
+const setLocal = (newState)=>{
+  localStorage.setItem('state', JSON.stringify(newState));
+}
+
+const userData = () =>
+{
+  let newState='';
+  if (localStorage.getItem('state')===null){
+    newState = state;
+    setLocal(newState);
+  }
+  else
+  {
+    newState = JSON.parse(localStorage.getItem('state'));
+  }
+  return newState
+};
+
+const listsReducer = (state = userData(), action) => {
   switch (action.type) {
     case CONSTANTS.ADD_CARD:
       const newCardItem = {
@@ -25,6 +42,7 @@ const listsReducer = (state = initialstate, action) => {
           return list;
         }
       });
+      setLocal(newState);
       return newState;
     case CONSTANTS.MOVE_CARD:
       let currentTask = "";
@@ -52,7 +70,7 @@ const listsReducer = (state = initialstate, action) => {
           return list;
         } else return list;
       });
-
+      setLocal(newState);
       return newState;
     case CONSTANTS.ADD_DESC:
       newState = state.map((list) => {
@@ -65,8 +83,10 @@ const listsReducer = (state = initialstate, action) => {
         }
         return list;
       });
+      setLocal(newState);
       return newState;
     default:
+      setLocal(state);
       return state;
   }
 };
