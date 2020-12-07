@@ -1,9 +1,10 @@
 import React from "react";
-import plus from "./../../../../assets/img/plus.svg";
 import Textarea from "react-textarea-autosize";
 import { connect } from "react-redux";
-import addCard from "./../../../../redux/action/addCard";
-import moveCard from "./../../../../redux/action/moveCard";
+import addCard from "../../../../redux/action/addCard";
+import moveCard from "../../../../redux/action/moveCard";
+import Dropdown from "./Dropdown";
+import plus from "./../../../../assets/img/plus.svg";
 
 class Addcard extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class Addcard extends React.Component {
     this.setState({ formOpen: true });
   }
 
-  formClose(e) {
+  formClose() {
     this.setState({ formOpen: false });
   }
 
@@ -52,7 +53,7 @@ class Addcard extends React.Component {
   }
 
   renderDropdown() {
-    const check = false;
+    console.log(this.props.store)
     let options = [];
     this.props.store.forEach((item) => {
       if (item.id === this.props.id - 1) {
@@ -65,22 +66,8 @@ class Addcard extends React.Component {
     if (options && options.length > 0) {
       return (
         <>
-          <select
-            className="dropdown"
-            name="cards"
-            id="cards"
-            ref={this.myRef}
-            autoFocus
-          >
-            {options.map((item, id) => {
-              return (
-                <option key={id} value={item.name}>
-                  {item.name}
-                </option>
-              );
-            })}
-          </select>
-          <div>
+          <Dropdown myRef={this.myRef} options={options} />
+          <div className="btn__group">
             <button onClick={this.handleMoveCard} className="tasks__add-task">
               Add task
             </button>
@@ -91,7 +78,8 @@ class Addcard extends React.Component {
         </>
       );
     } else {
-      return this.renderButton(check);
+      this.formClose();
+      return this.renderButton(false);
     }
   }
 
@@ -112,7 +100,7 @@ class Addcard extends React.Component {
           onChange={this.handleChange}
           placeholder="Enter the task..."
         />
-        <div>
+        <div className="btn__group">
           <button onMouseDown={this.handleAddCard} className="tasks__add-task">
             Add task
           </button>

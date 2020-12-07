@@ -1,10 +1,9 @@
 import { CONSTANTS } from "./index";
 
-const addDesc = (description,listid,cardid) => {
-  console.log(description,listid,cardid)
+const addDesc = (listid,cardid,description) => {
   return {
     type: CONSTANTS.ADD_DESC,
-    payload: { description, listid, cardid },
+    payload: { listid,cardid,description},
   };
 };
 

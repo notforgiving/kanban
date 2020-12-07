@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+import Description from "./Description/Description";
 
 function Fullscreen(props) {
   return (
     <div className="task__content">
       <div className="task__body">
         <div className="task__title">{props.location.date.title}</div>
-        <p className="task__description">{props.location.date.desc}</p>
+        {
+          <Description
+            cardPos={props.location.date.cardPos}
+            listId={props.location.date.listId}
+            cardid={props.location.date.cardid}
+          />
+        }
         <Link to="/">
           <button className="task__close">X</button>
         </Link>
@@ -16,10 +22,4 @@ function Fullscreen(props) {
   );
 }
 
-const mapStateToProps = function (state) {
-  return {
-    store: state.listsReducer,
-  };
-};
-
-export default connect(mapStateToProps)(Fullscreen);
+export default Fullscreen;

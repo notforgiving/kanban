@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Avatar from "./../../../assets/img/user-avatar.png";
 import Arrow from "./../../../assets/img/Arrow.svg";
+import { Link } from "react-router-dom";
 
 
 function Profile(props) {
@@ -17,12 +18,12 @@ function Profile(props) {
       </button>
       {visability && (
         <div className="header__profile-popap">
-          <div className="profile-popap__link">
+          <Link to='/' className="profile-popap__link">
             Profile
-          </div>
-          <div className="profile-popap__link">
+          </Link>
+          <Link to='/' className="profile-popap__link">
             Log Out
-          </div>
+          </Link>
         </div>
       )}
     </div>

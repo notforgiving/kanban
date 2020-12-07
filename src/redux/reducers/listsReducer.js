@@ -11,6 +11,7 @@ const listsReducer = (state = initialstate, action) => {
       const newCardItem = {
         id: cardId,
         name: action.payload.newTask,
+        desc:''
       };
       cardId += 1;
 
@@ -57,11 +58,9 @@ const listsReducer = (state = initialstate, action) => {
       newState = state.map((list) => {
         if (list.id === action.payload.listid) {
           list.card.forEach((card) => {
-            console.log(card);
             if (card.id === action.payload.cardid) {
               card.desc = action.payload.description;
             }
-            console.log(card);
           });
         }
         return list;

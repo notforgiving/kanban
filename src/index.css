@@ -128,6 +128,7 @@ textarea button {
   font-size: 28px;
   line-height: 33px;
   font-weight: normal;
+  color: #fff;
 }
 
 .header__profile {
@@ -217,6 +218,8 @@ textarea button {
   cursor: pointer;
   outline: none;
   margin-right: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .tasks__add-task:hover {
@@ -293,11 +296,19 @@ textarea button {
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.btn__group{
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
 }
 
 .task__add-img {
-  width: 15px;
-  margin-right: 5px;
+  width: 10px;
+  margin-right: 10px;
 }
 
 .task__add:hover {
@@ -409,5 +420,16 @@ textarea button {
   .tasks__step {
     width: 90%;
     margin-bottom: 10px;
+  }
+}
+
+@media (max-width:320px){
+  .header__logo h1 {
+    font-size: 18px;
+  }
+  .footer {
+    height: fit-content;
+    flex-direction: column;
+    font-size: 17px;
   }
 }

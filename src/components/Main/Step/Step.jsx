@@ -4,6 +4,7 @@ import Task from "./Task/Task";
 import { Link } from "react-router-dom";
 
 function Step(props) {
+  console.log(props)
   return (
     <div className="tasks__step">
       <h4 className="tasks__step-title">{props.data.title}</h4>
@@ -13,12 +14,13 @@ function Step(props) {
             <Link
               key={`${index}${item}`}
               to={{
-                pathname: "/Fullscreen",
+                pathname: `/Fullscreen/${item.id}`,
                 date: {
                   title: item.name,
                   desc: item.desc,
                   cardid: item.id,
                   listId: props.data.id,
+                  cardPos: index,
                 },
               }}
             >
